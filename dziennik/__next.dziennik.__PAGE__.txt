@@ -1,0 +1,31 @@
+2:"$Sreact.fragment"
+3:"/_next/static/chunks/01cty-1a8zs9w.js"
+4:"/_next/static/chunks/1b8hxne735qkl.js"
+5:"/_next/static/chunks/04fnwnwnx_qyn.js"
+6:I[39756,["$3","$4","$5"],"default"]
+7:I[37457,["$3","$4","$5"],"default"]
+c:"/_next/static/chunks/3yedyzchdbemg.js"
+d:I[22016,["$3","$4","$5","$c"],""]
+e:I[38286,["$3","$4","$5","$c"],"Roll"]
+f:I[11181,["$3","$4","$5","$c"],"Newsletter"]
+10:I[97367,["$3","$4","$5"],"OutletBoundary"]
+11:"$Sreact.suspense"
+14:"ViewportBoundary"
+15:I[97367,["$3","$4","$5"],"$14"]
+16:"MetadataBoundary"
+17:I[97367,["$3","$4","$5"],"$16"]
+18:I[27201,["$3","$4","$5"],"IconMark"]
+9:X
+9:C
+a:X
+b:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","div",null,{"className":"page","children":[["$","header",null,{"className":"page-head","children":[["$","h1",null,{"data-split":"lines","data-intro":true,"children":"Dziennik"}],["$","p",null,{"children":"Odkrywamy historie przedmiotów, a Ty dopisujesz ciąg dalszy."}]]}],["$","ul",null,{"className":"rows rows--big","children":[["$","li","fat-lava-pan-leuchten",{"children":["$","$Ld",null,{"prefetch":false,"href":"/dziennik/fat-lava-pan-leuchten/","children":[["$","span",null,{"className":"rows__year","children":"Lata 70."}],["$","span",null,{"className":"rows__title","children":[["$","$Le",null,{"children":"Fat lava: nieużywany kinkiet Pan Leuchten sprzed pięciu dekad"}],["$","small",null,{"children":"Zachodnioniemiecka ceramika z grubo nakładanym, masywnym szkliwem i lampa, która nigdy nie była montowana."}]]}],["$","span",null,{"className":"rows__meta","children":"Historie przedmiotów"}]]}]}],["$","li","energy-light-slamp",{"children":["$","$Ld",null,{"prefetch":false,"href":"/dziennik/energy-light-slamp/","children":[["$","span",null,{"className":"rows__year","children":"Lata 90."}],["$","span",null,{"className":"rows__title","children":[["$","$Le",null,{"children":"Energy Light: kiedy lampa zamienia się w świetlistą rzeźbę"}],["$","small",null,{"children":"Samuel Parker i Slamp, czyli włoskie eksperymenty z technopolimerami zamiast szkła i metalu."}]]}],["$","span",null,{"className":"rows__meta","children":"Historie przedmiotów"}]]}]}],["$","li","sloy-kasia-sobala",{"children":["$","$Ld",null,{"prefetch":false,"href":"/dziennik/sloy-kasia-sobala/","children":[["$","span",null,{"className":"rows__year","children":"2025"}],["$","span",null,{"className":"rows__title","children":[["$","$Le",null,{"children":"SLOY × Kasia Sobala"}],["$","small",null,{"children":"Nasza pierwsza współpraca artystyczna: krzesło obrotowe duńskiej marki Labofa i obicie wykonane metodą tuftingu."}]]}],["$","span",null,{"className":"rows__meta","children":"Przestrzeń artystyczna"}]]}]}]]}],["$","$Lf",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/3yedyzchdbemg.js","async":true}]],["$","$L10",null,{"children":["$","$11",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]]}],"p":"$@13","v":null,"s":"$a"}}]]
+1:[["children",{"s":"dziennik","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","template":["$","$L7",null,{}]}]]}],"p":"$@8","v":"$9","s":"$a"},"c":"$Qb"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L15",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#FFFFFF"}]]}],["$","$L17",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$11",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Dziennik | SLOY"}],["$","meta","1",{"name":"description","content":"Historie przedmiotów i współprace SLOY: fat lava od Pan Leuchten, świetliste rzeźby Slamp i krzesło Labofa w tuftingu Kasi Sobali."}],["$","link","2",{"rel":"canonical","href":"https://sloy.pl/dziennik/"}],["$","meta","3",{"property":"og:title","content":"Dziennik | SLOY"}],["$","meta","4",{"property":"og:description","content":"Historie przedmiotów i współprace SLOY: fat lava od Pan Leuchten, świetliste rzeźby Slamp i krzesło Labofa w tuftingu Kasi Sobali."}],["$","meta","5",{"property":"og:site_name","content":"SLOY"}],["$","meta","6",{"property":"og:locale","content":"pl_PL"}],["$","meta","7",{"property":"og:image","content":"https://sloy.pl/og.png"}],["$","meta","8",{"property":"og:type","content":"website"}],["$","meta","9",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","10",{"name":"twitter:title","content":"Dziennik | SLOY"}],["$","meta","11",{"name":"twitter:description","content":"Historie przedmiotów i współprace SLOY: fat lava od Pan Leuchten, świetliste rzeźby Slamp i krzesło Labofa w tuftingu Kasi Sobali."}],["$","meta","12",{"name":"twitter:image","content":"https://sloy.pl/og.png"}],["$","link","13",{"rel":"icon","href":"/icon.svg?icon.0ho3forjmz4bc.svg","sizes":"any","type":"image/svg+xml"}],["$","$L18","14",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@19","v":null,"s":"$a"}},"a":"$@1a","u":"$@1b","b":"iFs138UefMOQQnvdOD3CG"}
+12:null
+1b:true
+a:300
+a:C
+1a:0
+8:"$undefined"
+19:"$undefined"
+13:"$undefined"
