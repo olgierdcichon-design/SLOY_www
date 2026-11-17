@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Katalog 2025 | SLOY</title>
+<meta name="description" content="Katalog SLOY 2025: meble, oświetlenie i dodatki vintage, które znalazły już swoje przestrzenie.">
+<meta name="theme-color" content="#1A1A1A">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:Montserrat;font-style:normal;font-weight:100 900;font-display:swap;src:url(/_next/static/media/65341aea9fb91af5-s.p.1dqa_6e_ad4sj.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Montserrat;font-style:normal;font-weight:100 900;font-display:swap;src:url(/_next/static/media/e1f600cb732239d9-s.p.1mvr14jy3vxq7.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--fg:#fff;--muted:rgba(255,255,255,.62);--bg:#1a1a1a;--accent:#ff850c;--gutter:clamp(1rem,.6rem + 1.6vw,2.5rem)}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:Montserrat,"Helvetica Neue",Arial,sans-serif;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+header{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem var(--gutter)}
+.back{font-weight:600;text-decoration:none;border-bottom:1px solid;padding-block:.15rem}
+.back:hover{box-shadow:0 2px 0 0 currentColor}
+h1{font-size:clamp(1rem,.9rem + .6vw,1.35rem);font-weight:700;letter-spacing:-.01em}
+.dl{font-size:.875rem;color:var(--muted)}
+.dl:hover{color:var(--fg)}
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:0 var(--gutter);min-height:0}
+.stage{width:min(100%,1180px);height:100%;max-height:calc(100svh - 9rem);display:flex;align-items:center;justify-content:center}
+.bookwrap{margin:0 auto;width:min(100%,calc((100svh - 9.5rem)*1.4147))}@media (max-width:760px){.bookwrap{width:min(100%,calc((100svh - 10rem)*.7073))}}
+.page{background:#fff;overflow:hidden}
+.page img{display:block;width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none}
+footer{display:flex;align-items:center;justify-content:center;gap:1rem;padding:1rem var(--gutter) 1.25rem}
+.nav{appearance:none;border:1px solid var(--fg);background:transparent;color:var(--fg);font:600 .95rem/1 Montserrat,Arial,sans-serif;min-width:2.875rem;min-height:2.875rem;padding:0 1rem;cursor:pointer;transition:background-color .2s,color .2s}
+.nav:hover:not(:disabled){background:var(--accent);border-color:var(--accent);color:#1a1a1a}
+.nav:disabled{opacity:.3;cursor:default}
+.count{font-variant-numeric:tabular-nums;min-width:6.5rem;text-align:center;font-size:.95rem}
+.hint{color:var(--muted);font-size:.8rem;text-align:center;padding:0 var(--gutter) .75rem}
+.loading{color:var(--muted)}
+noscript{display:block;text-align:center;padding:2rem}
+@media (max-width:640px){.dl{display:none}header{padding-block:.75rem}}
+</style>
+</head>
+<body>
+<header>
+  <a class="back" href="/o-nas/">← Wróć do SLOY</a>
+  <h1>Katalog 2025</h1>
+  <a class="dl" href="/sloy-katalog-2025.pdf" download>Pobierz PDF (3,5 MB)</a>
+</header>
+<main>
+  <div class="stage"><div class="bookwrap"><div id="book"><p class="loading">Wczytujemy katalog…</p></div></div></div>
+  <noscript>Przeglądarka ma wyłączony JavaScript. <a href="/sloy-katalog-2025.pdf">Otwórz katalog w PDF</a>.</noscript>
+</main>
+<footer>
+  <button class="nav" id="prev" aria-label="Poprzednia strona">←</button>
+  <span class="count" id="count" aria-live="polite">1 / 42</span>
+  <button class="nav" id="next" aria-label="Następna strona">→</button>
+</footer>
+<p class="hint">Przeciągnij róg strony, kliknij strzałki albo użyj klawiszy ← →</p>
+<script src="/katalog/page-flip.browser.js"></script>
+<script>
+(function(){
+  var N=42, W=800, H=1131;
+  var book=document.getElementById('book');
+  book.innerHTML='';
+  for(var i=1;i<=N;i++){
+    var d=document.createElement('div');d.className='page';
+    if(i===1||i===N)d.setAttribute('data-density','hard');
+    var img=document.createElement('img');
+    img.src='/katalog/p/'+(i<10?'0':'')+i+'.webp';img.alt='Katalog SLOY 2025, strona '+i;
+    img.width=W;img.height=H;img.decoding='async';if(i>4)img.loading='lazy';
+    d.appendChild(img);book.appendChild(d);
+  }
+  var pf=new St.PageFlip(book,{width:W,height:H,size:'stretch',minWidth:240,maxWidth:W,minHeight:340,maxHeight:H,
+    showCover:true,usePortrait:true,mobileScrollSupport:false,maxShadowOpacity:.4,flippingTime:700});
+  pf.loadFromHTML(book.querySelectorAll('.page'));
+  var prev=document.getElementById('prev'),next=document.getElementById('next'),count=document.getElementById('count');
+  function upd(){
+    var i=pf.getCurrentPageIndex(),n=pf.getPageCount(),txt;
+    if(pf.getOrientation()==='landscape'&&i>0&&i<n-1){var a=i%2===1?i:i-1;txt=(a+1)+'–'+Math.min(a+2,n)+' / '+n;}
+    else txt=(i+1)+' / '+n;
+    count.textContent=txt;prev.disabled=i===0;next.disabled=i>=n-1||(pf.getOrientation()==='landscape'&&i>=n-2&&i%2===1);
+  }
+  pf.on('flip',upd);pf.on('changeOrientation',upd);pf.on('init',upd);upd();
+  prev.onclick=function(){pf.flipPrev()};next.onclick=function(){pf.flipNext()};
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')pf.flipPrev();if(e.key==='ArrowRight')pf.flipNext();});
+})();
+</script>
+</body>
+</html>
