@@ -240,7 +240,10 @@ def validate_port(root):
         lots = json.loads(p.inline[a:b])
         h = p.html
         axis = h[h.index('<div class="axis"'):h.index('<p class="axis__legend"')]
-        assert axis == col.axis_html(lots), 'axis port mismatch on ' + route
+        # style attributes may be serialized differently (e.g. "background: rgb(...)"),
+        # React does not compare attributes on hydration, so compare structure + text only
+        nost = lambda s: re.sub(r' style="[^"]*"', '', s)
+        assert nost(axis) == nost(col.axis_html(lots)), 'axis port mismatch on ' + route
         order = re.findall(r'<a class="card[^"]*"[^>]*href="/lot/([^/]+)/"', h[h.index('<div class="grid">'):])
         assert order == [l['slug'] for l in col.mix_order(lots)], 'order port mismatch on ' + route
 
@@ -279,9 +282,10 @@ def make_categories(root):
         h = p.html
         a0, a1 = h.index('<div class="axis"'), h.index('<p class="axis__legend"')
         p.html = h[:a0] + col.axis_html(lots) + h[a1:]
-        p.hsub('<span class="data">14</span> <!-- -->przedmiotów w magazynie</p>',
-               f'<span class="data">{len(lots)}</span> <!-- -->{esc(heading)}</p>')
-        h = p.html
+        h, k = re.subn(r'<p aria-live="polite"><span class="data">\d+</span> <!-- -->przedmiotów w magazynie</p>',
+                       f'<p aria-live="polite"><span class="data">{len(lots)}</span> <!-- -->{esc(heading)}</p>', p.html)
+        assert k == 1, 'toolbar not found'
+        p.html = h
         g0 = h.index('<div class="grid">') + len('<div class="grid">')
         g1 = h.index('</div></div></div></div><!--$-->', g0)
         p.html = h[:g0] + ''.join(cards[l['slug']] for l in col.mix_order(lots)) + h[g1:]

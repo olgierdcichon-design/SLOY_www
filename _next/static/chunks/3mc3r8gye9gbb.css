@@ -4,3 +4,4 @@
 .contact,#kontakt{scroll-margin-top:calc(var(--head) + 1.5rem)}
 .card__year{display:none}.news{display:none}
 .card__meta,.card__door{display:none}
+.card--sold .card__door{display:inline-flex;align-items:center;border:1px solid var(--c-accent);padding:.3rem .7rem;font-weight:600;color:var(--c-fg)}.card--sold:hover .card__door{background:var(--c-accent)}.footer-map{display:block;margin-top:1.25rem;max-width:360px;border:1px solid currentColor}.footer-map img{display:block;width:100%;height:auto}
