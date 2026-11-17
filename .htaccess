@@ -1,1 +1,91 @@
+# ---------------------------------------------------------------------------
+# SLOY – Apache (Hostinger) configuration
+# 301 redirects from the old Shopify URL structure to the new site.
+# ---------------------------------------------------------------------------
+
 ErrorDocument 404 /404.html
+Options -MultiViews
+AddDefaultCharset UTF-8
+DirectorySlash On
+
+# helper scripts are not part of the website
+RedirectMatch 404 ^/(tools/|\.sloy-postbuild)
+
+# >>> STAGING-NOINDEX (removed by tools/go_live.py – do not edit this block by hand)
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex"
+</IfModule>
+# <<< STAGING-NOINDEX
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# --- one canonical host: https://sloy.pl -----------------------------------
+# (only for the sloy.pl domain, so a staging/temporary domain is not affected)
+RewriteCond %{HTTP_HOST} ^(www\.)?sloy\.pl$ [NC]
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://sloy.pl%{REQUEST_URI} [R=301,L,NE]
+
+# Shopify market / language prefixes (/en, /en-eu, /pl-eu) are stripped by
+# the optional (?:(?:en|en-eu|pl-eu)/)? group in every rule below.
+
+# --- products ---------------------------------------------------------------
+# /products/<slug>  and  /collections/<any>/products/<slug>  ->  /lot/<slug>/
+RewriteCond %{DOCUMENT_ROOT}/lot/$1 -d
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?(?:collections/[^/]+/)?products/([^/.]+)(?:\.[a-z]+)?/?$ /lot/$1/ [R=301,L]
+# product that no longer exists -> collection
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?(?:collections/[^/]+/)?products(?:/.*)?$ /kolekcja/ [R=301,L]
+
+# --- collections ------------------------------------------------------------
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?collections/lighting(?:/.*)?$ /oswietlenie/ [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?collections/furniture(?:/.*)?$ /meble/ [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?collections/objects(?:/.*)?$ /dodatki/ [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?collections(?:/.*)?$ /kolekcja/ [R=301,L]
+
+# --- pages ------------------------------------------------------------------
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?pages/(?:about-us|contact-us)/?$ /o-nas/ [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?pages/faq/?$ /o-nas/#pytania [R=301,L,NE]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?pages/regulations-of-the-sloy-online-store/?$ /regulamin/ [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?pages/(?:information-on-the-protection-of-personal-data-gdpr|personal-data-requests|wnioski-rodo-o-prywatnosc)/?$ /polityka-prywatnosci/ [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?pages/informacion-on-the-use-of-cookies/?$ /cookies/ [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?pages/withdrawal-form/?$ /odstapienie-od-umowy/ [R=301,L]
+# contest rules (SLOY x Balkon na Miodowej) – no page on the new site yet
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?pages/regulamin-konkursu-[^/]*/?$ /regulamin/ [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?pages(?:/.*)?$ / [R=301,L]
+
+# --- policies ---------------------------------------------------------------
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?policies/terms-of-service/?$ /regulamin/ [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?policies/privacy-policy/?$ /polityka-prywatnosci/ [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?policies/refund-policy/?$ /odstapienie-od-umowy/ [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?policies/shipping-policy/?$ /dostawa/ [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?policies/contact-information/?$ /o-nas/ [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?policies(?:/.*)?$ /regulamin/ [R=301,L]
+
+# --- blog -------------------------------------------------------------------
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?blogs(?:/.*)?$ /dziennik/ [R=301,L]
+
+# --- cart, account, search, misc Shopify endpoints --------------------------
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?cart(?:/.*)?$ /koszyk/ [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?(?:checkout|checkouts)(?:/.*)?$ /koszyk/ [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?account(?:/.*)?$ / [R=301,L]
+RewriteRule ^(?:(?:en|en-eu|pl-eu)/)?search/?$ /kolekcja/ [R=301,L]
+RewriteRule ^sitemap_[a-z_0-9]+\.xml$ /sitemap.xml [R=301,L]
+RewriteRule ^agents\.md$ / [R=301,L]
+
+# --- anything else under a language prefix -> same path without it ----------
+RewriteRule ^(?:en|en-eu|pl-eu)/?$ / [R=301,L]
+RewriteRule ^(?:en|en-eu|pl-eu)/(.*)$ /$1 [R=301,L]
+</IfModule>
+
+# --- caching: hashed Next.js assets never change --------------------------
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "^(consent\.js|sloy-extra\.css)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>
