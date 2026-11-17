@@ -3,3 +3,4 @@
 .stage__hint{right:var(--gutter);top:calc(var(--head) + 4.4rem);z-index:3;max-width:15.5rem;padding:.75rem .95rem .75rem 2.4rem;border:1px solid var(--c-fg);background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-size:.875rem;line-height:1.4;position:absolute}.stage__hint:before{content:"↓";position:absolute;left:.95rem;top:.7rem;font-weight:700;animation:hintbob 1.8s var(--ease) infinite}@keyframes hintbob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}@media (prefers-reduced-motion:reduce){.stage__hint:before{animation:none}}@media (max-width:899px){.stage__hint{display:none}}html:not(.motion) .stage__hint{display:none}
 .contact,#kontakt{scroll-margin-top:calc(var(--head) + 1.5rem)}
 .card__year{display:none}.news{display:none}
+.card__meta,.card__door{display:none}
