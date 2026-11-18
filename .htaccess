@@ -20,6 +20,9 @@ RedirectMatch 404 ^/(tools/|\.sloy-postbuild)
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
+# let SSL certificate validation (Let's Encrypt) through without redirect
+RewriteRule ^\.well-known/ - [L]
+
 # --- one canonical host: https://sloy.pl -----------------------------------
 # (only for the sloy.pl domain, so a staging/temporary domain is not affected)
 RewriteCond %{HTTP_HOST} ^(www\.)?sloy\.pl$ [NC]
