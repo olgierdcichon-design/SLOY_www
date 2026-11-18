@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Katalog 2025 | SLOY</title>
+<style>
+@font-face{font-family:Montserrat;font-style:normal;font-weight:100 900;font-display:swap;src:url(/_next/static/media/65341aea9fb91af5-s.p.1dqa_6e_ad4sj.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Montserrat;font-style:normal;font-weight:100 900;font-display:swap;src:url(/_next/static/media/e1f600cb732239d9-s.p.1mvr14jy3vxq7.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:transparent}
+body{font-family:Montserrat,"Helvetica Neue",Arial,sans-serif;color:#1a1a1a;display:flex;flex-direction:column;align-items:flex-start;overflow:hidden}
+.bookwrap{--bar:3.25rem;width:min(100%,calc((100vh - var(--bar)) * .7073));height:calc(100vh - var(--bar))}
+:fullscreen body,body.fs{background:#1a1a1a;align-items:center;justify-content:center}
+body.fs .bookwrap{width:min(100%,calc((100vh - var(--bar)) * 1.4147))}
+body.fs .bar{color:#fff;border-color:#fff}
+body.fs .nav,body.fs .fs-btn{color:#fff;border-color:#fff}
+.page{background:#fff;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.page img{display:block;width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none}
+.bar{display:flex;align-items:center;gap:.6rem;height:3.25rem;padding-top:.6rem}
+.nav,.fs-btn{appearance:none;border:1px solid #1a1a1a;background:transparent;color:#1a1a1a;font:600 .9rem/1 Montserrat,Arial,sans-serif;min-width:2.5rem;height:2.5rem;padding:0 .8rem;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s}
+.nav:hover:not(:disabled),.fs-btn:hover{background:#ff850c;border-color:#ff850c;color:#1a1a1a}
+.nav:disabled{opacity:.3;cursor:default}
+.count{font-variant-numeric:tabular-nums;min-width:4.5rem;text-align:center;font-size:.875rem}
+</style>
+</head>
+<body>
+<div class="bookwrap"><div id="book"></div></div>
+<div class="bar">
+  <button class="nav" id="prev" aria-label="Poprzednia strona">←</button>
+  <span class="count" id="count" aria-live="polite">1 / 42</span>
+  <button class="nav" id="next" aria-label="Następna strona">→</button>
+  <button class="fs-btn" id="fs" aria-label="Pełny ekran">⤢ Pełny ekran</button>
+</div>
+<script src="/katalog/page-flip.browser.js"></script>
+<script>
+(function(){
+  var N=42,W=800,H=1131,book=document.getElementById('book'),pf=null,cur=0;
+  var prev=document.getElementById('prev'),next=document.getElementById('next'),count=document.getElementById('count'),fsb=document.getElementById('fs');
+  function build(){
+    if(pf){cur=pf.getCurrentPageIndex();pf.destroy();}
+    var wrap=document.querySelector('.bookwrap');wrap.innerHTML='<div id="book"></div>';book=document.getElementById('book');
+    for(var i=1;i<=N;i++){var d=document.createElement('div');d.className='page';if(i===1||i===N)d.setAttribute('data-density','hard');
+      var img=document.createElement('img');img.src='/katalog/p/'+(i<10?'0':'')+i+'.webp';img.alt='Katalog SLOY 2025, strona '+i;img.width=W;img.height=H;img.decoding='async';if(i>3)img.loading='lazy';d.appendChild(img);book.appendChild(d);}
+    pf=new St.PageFlip(book,{width:W,height:H,size:'stretch',minWidth:280,maxWidth:W,minHeight:396,maxHeight:H,showCover:true,usePortrait:true,mobileScrollSupport:false,maxShadowOpacity:.35,flippingTime:650,startPage:cur});
+    pf.loadFromHTML(book.querySelectorAll('.page'));
+    pf.on('flip',upd);pf.on('changeOrientation',upd);pf.on('init',upd);upd();
+  }
+  function upd(){if(!pf)return;var i=pf.getCurrentPageIndex(),n=pf.getPageCount(),land=pf.getOrientation()==='landscape';
+    count.textContent=(land&&i>0&&i<n-1)?((i%2?i:i-1)+1)+'–'+Math.min((i%2?i:i-1)+2,n)+' / '+n:(i+1)+' / '+n;
+    prev.disabled=i===0;next.disabled=i>=n-1||(land&&i>=n-2&&i%2===1);}
+  prev.onclick=function(){pf.flipPrev()};next.onclick=function(){pf.flipNext()};
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')pf.flipPrev();if(e.key==='ArrowRight')pf.flipNext();});
+  var canFs=!!(document.documentElement.requestFullscreen||document.documentElement.webkitRequestFullscreen)&&document.fullscreenEnabled!==false;
+  if(!canFs)fsb.style.display='none';
+  fsb.onclick=function(){var d=document,el=d.documentElement;
+    if(d.fullscreenElement||d.webkitFullscreenElement){(d.exitFullscreen||d.webkitExitFullscreen).call(d);}
+    else{(el.requestFullscreen||el.webkitRequestFullscreen).call(el);}};
+  function onFs(){var on=!!(document.fullscreenElement||document.webkitFullscreenElement);document.body.classList.toggle('fs',on);fsb.textContent=on?'✕ Zamknij':'⤢ Pełny ekran';setTimeout(build,60);}
+  document.addEventListener('fullscreenchange',onFs);document.addEventListener('webkitfullscreenchange',onFs);
+  build();
+})();
+</script>
+</body>
+</html>
