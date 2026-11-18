@@ -1,0 +1,9 @@
+# Ustawienia i dane zamówień nie mogą być dostępne z przeglądarki.
+<FilesMatch "^(config\.php|config\.example\.php|lib\.php)$">
+  Require all denied
+</FilesMatch>
+<IfModule mod_headers.c>
+  Header set Cache-Control "no-store"
+  Header unset X-Robots-Tag
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>

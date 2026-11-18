@@ -4,7 +4,7 @@
 5:"/_next/static/chunks/04fnwnwnx_qyn.js"
 6:I[39756,["$3","$4","$5"],"default"]
 7:I[37457,["$3","$4","$5"],"default"]
-c:"/_next/static/chunks/0bf8p8y8xd291.js"
+c:"/_next/static/chunks/0bf8p8y8xd291-stripe.js"
 d:I[45209,["$3","$4","$5","$c"],"CartView"]
 e:I[97367,["$3","$4","$5"],"OutletBoundary"]
 f:"$Sreact.suspense"
@@ -16,7 +16,7 @@ f:"$Sreact.suspense"
 9:X
 9:C
 a:X
-b:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","div",null,{"className":"page","children":["$","$Ld",null,{}]}],[["$","script","script-0",{"src":"/_next/static/chunks/0bf8p8y8xd291.js","async":true}]],["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]]}],"p":"$@11","v":null,"s":"$a"}}]]
+b:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","div",null,{"className":"page","children":["$","$Ld",null,{}]}],[["$","script","script-0",{"src":"/_next/static/chunks/0bf8p8y8xd291-stripe.js","async":true}]],["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]]}],"p":"$@11","v":null,"s":"$a"}}]]
 1:[["children",{"s":"koszyk","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","template":["$","$L7",null,{}]}]]}],"p":"$@8","v":"$9","s":"$a"},"c":"$Qb"}]]
 0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L13",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#FFFFFF"}]]}],["$","$L15",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$f",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Koszyk | SLOY"}],["$","meta","1",{"name":"description","content":"Twój koszyk: policz dostawę z kodu pocztowego, wybierz sposób odbioru i zapłać w całości albo zarezerwuj z zadatkiem 20%."}],["$","meta","2",{"name":"robots","content":"noindex"}],["$","link","3",{"rel":"canonical","href":"https://sloy.pl/koszyk/"}],["$","meta","4",{"property":"og:title","content":"Koszyk | SLOY"}],["$","meta","5",{"property":"og:description","content":"Twój koszyk: policz dostawę z kodu pocztowego, wybierz sposób odbioru i zapłać w całości albo zarezerwuj z zadatkiem 20%."}],["$","meta","6",{"property":"og:site_name","content":"SLOY"}],["$","meta","7",{"property":"og:locale","content":"pl_PL"}],["$","meta","8",{"property":"og:image","content":"https://sloy.pl/og.png"}],["$","meta","9",{"property":"og:type","content":"website"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"Koszyk | SLOY"}],["$","meta","12",{"name":"twitter:description","content":"Twój koszyk: policz dostawę z kodu pocztowego, wybierz sposób odbioru i zapłać w całości albo zarezerwuj z zadatkiem 20%."}],["$","meta","13",{"name":"twitter:image","content":"https://sloy.pl/og.png"}],["$","link","14",{"rel":"icon","href":"/icon.svg?icon.0ho3forjmz4bc.svg","sizes":"any","type":"image/svg+xml"}],["$","$L16","15",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@17","v":null,"s":"$a"}},"a":"$@18","u":"$@19","b":"iFs138UefMOQQnvdOD3CG"}
 10:null
